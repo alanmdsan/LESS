@@ -1,0 +1,119 @@
+@import "mapas.less";
+
+// escapings
+@breakpoint_mobile: ~"(max-width: 767px)";
+@breakpoint_tablet: ~"(min-width: 768px) and (max-width: 1023px)";
+@profile_avatar: ~"../images/profile.jpg";
+
+// mixings
+.margin_bottom_8 {
+    margin-bottom: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #colors[background_color];
+    color: #colors[text_color];
+    font-family: 'Quicksand', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media @breakpoint_mobile {
+        max-width: 70%;
+    }
+
+    @media @breakpoint_tablet {
+        max-width: 80%;
+    }
+}
+
+header {
+    padding-bottom: 24px;
+
+    .profile-avatar {
+        background: url(@profile_avatar) 50% 50% no-repeat;
+        display: block;
+        margin: 0 auto 24px;
+        border-radius: 50%;
+        height: 96px;
+        width: 96px;
+    }
+}
+
+.profile-bio {
+    text-align: center;
+
+    &-name {
+        font-size: 16px;
+        .margin_bottom_8();
+    }
+    
+    &-subtitle {
+        font-size: 14px;
+        .margin_bottom_8();
+    }
+    
+    &-description {
+        font-size: 14px;
+        opacity: .7;
+    }
+}
+
+.social-links {
+    display: flex;
+    justify-content: space-between;
+    max-width: 240px;
+    width: 100%;
+    margin: 0 auto;
+
+    li {
+        img {
+            transition: all ease .1s;
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+.projects-list {
+    margin-top: 32px;
+
+    &-item {
+        a {
+            display: block;
+            text-decoration: none;
+            background-color: #colors[button_color];
+            padding: 16px 24px;
+            margin-bottom: 16px;
+            text-align: center;
+            color: #colors[text_color];
+            font-weight: bold;
+            border-radius: 30px;
+            border: 2px solid #colors[button_color];
+            transition: all ease .1s;
+
+            &:hover {
+                color: #colors[button_color];
+                background-color: transparent;
+            }
+        }
+    }
+}
